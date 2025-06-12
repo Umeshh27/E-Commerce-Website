@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - ShopEase</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1><i class="fas fa-shopping-bag"></i> ShopEase</h1>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="index.html#shop" class="nav-link">Shop</a></li>
+                        <li><a href="about.html" class="nav-link">About</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li><a href="login.html" class="nav-link">Login</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search products..." class="search-input">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="cart-icon" id="cartIcon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="container">
+            <div class="checkout-header">
+                <h1>Checkout</h1>
+                <div class="checkout-steps">
+                    <div class="step active">
+                        <div class="step-number">1</div>
+                        <span>Shipping</span>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <span>Payment</span>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <span>Review</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="checkout-container">
+                <div class="checkout-main">
+                    <!-- Shipping Information -->
+                    <div class="checkout-section-card" id="shippingSection">
+                        <div class="section-header">
+                            <h2><i class="fas fa-shipping-fast"></i> Shipping Information</h2>
+                        </div>
+                        <form class="checkout-form" id="shippingForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address">Street Address *</label>
+                                <input type="text" id="address" name="address" placeholder="123 Main Street" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">City *</label>
+                                    <input type="text" id="city" name="city" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="state">State *</label>
+                                    <select id="state" name="state" required>
+                                        <option value="">Select State</option>
+                                        <option value="AL">Andhra Pradesh</option>
+                                        <option value="CA">Maharashtra</option>
+                                        <option value="FL">Madhya Pradesh</option>
+                                        <option value="NY">Telengana</option>
+                                        <option value="TX">Tamil Nadu</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="zipCode">ZIP Code *</label>
+                                    <input type="text" id="zipCode" name="zipCode" required>
+                                </div>
+                            </div>
+                            
+                            <div class="shipping-options">
+                                <h3>Shipping Method</h3>
+                                <div class="shipping-option">
+                                    <input type="radio" id="standard" name="shipping" value="standard" checked>
+                                    <label for="standard">
+                                        <div class="option-info">
+                                            <span class="option-name">Standard Shipping</span>
+                                            <span class="option-time">5-7 business days</span>
+                                        </div>
+                                        <span class="option-price">Free</span>
+                                    </label>
+                                </div>
+                                <div class="shipping-option">
+                                    <input type="radio" id="express" name="shipping" value="express">
+                                    <label for="express">
+                                        <div class="option-info">
+                                            <span class="option-name">Express Shipping</span>
+                                            <span class="option-time">2-3 business days</span>
+                                        </div>
+                                        <span class="option-price">$9.99</span>
+                                    </label>
+                                </div>
+                                <div class="shipping-option">
+                                    <input type="radio" id="overnight" name="shipping" value="overnight">
+                                    <label for="overnight">
+                                        <div class="option-info">
+                                            <span class="option-name">Overnight Shipping</span>
+                                            <span class="option-time">1 business day</span>
+                                        </div>
+                                        <span class="option-price">$19.99</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <button type="button" class="continue-btn" onclick="nextStep()">
+                                Continue to Payment
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Payment Information -->
+                    <div class="checkout-section-card hidden" id="paymentSection">
+                        <div class="section-header">
+                            <h2><i class="fas fa-credit-card"></i> Payment Information</h2>
+                        </div>
+                        <form class="checkout-form" id="paymentForm">
+                            <div class="payment-methods">
+                                <div class="payment-method">
+                                    <input type="radio" id="creditCard" name="paymentMethod" value="creditCard" checked>
+                                    <label for="creditCard">
+                                        <i class="fas fa-credit-card"></i>
+                                        Credit/Debit Card
+                                    </label>
+                                </div>
+                                <div class="payment-method">
+                                    <input type="radio" id="paypal" name="paymentMethod" value="paypal">
+                                    <label for="paypal">
+                                        <i class="fab fa-paypal"></i>
+                                        PayPal
+                                    </label>
+                                </div>
+                                <div class="payment-method">
+                                    <input type="radio" id="applePay" name="paymentMethod" value="applePay">
+                                    <label for="applePay">
+                                        <i class="fab fa-apple-pay"></i>
+                                        Apple Pay
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="credit-card-form" id="creditCardForm">
+                                <div class="form-group">
+                                    <label for="cardNumber">Card Number *</label>
+                                    <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="expiryDate">Expiry Date *</label>
+                                        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" maxlength="5">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cvv">CVV *</label>
+                                        <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="cardName">Name on Card *</label>
+                                    <input type="text" id="cardName" name="cardName" placeholder="John Doe">
+                                </div>
+                            </div>
+                            
+                            <div class="form-options">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="saveCard">
+                                    <span class="checkmark"></span>
+                                    Save this card for future purchases
+                                </label>
+                            </div>
+                            
+                            <div class="button-group">
+                                <button type="button" class="back-btn" onclick="prevStep()">
+                                    <i class="fas fa-arrow-left"></i>
+                                    Back to Shipping
+                                </button>
+                                <button type="button" class="continue-btn" onclick="nextStep()">
+                                    Continue to Review
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Order Review -->
+                    <div class="checkout-section-card hidden" id="reviewSection">
+                        <div class="section-header">
+                            <h2><i class="fas fa-clipboard-check"></i> Order Review</h2>
+                        </div>
+                        <div class="order-review">
+                            <div class="review-section">
+                                <h3>Shipping Address</h3>
+                                <div class="review-content" id="shippingReview">
+                                    <!-- Shipping details will be populated here -->
+                                </div>
+                                <button class="edit-btn" onclick="editSection('shipping')">Edit</button>
+                            </div>
+                            
+                            <div class="review-section">
+                                <h3>Payment Method</h3>
+                                <div class="review-content" id="paymentReview">
+                                    <!-- Payment details will be populated here -->
+                                </div>
+                                <button class="edit-btn" onclick="editSection('payment')">Edit</button>
+                            </div>
+                            
+                            <div class="button-group">
+                                <button type="button" class="back-btn" onclick="prevStep()">
+                                    <i class="fas fa-arrow-left"></i>
+                                    Back to Payment
+                                </button>
+                                <button type="button" class="place-order-btn" onclick="placeOrder()">
+                                    <i class="fas fa-check"></i>
+                                    Place Order
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <div class="summary-card">
+                        <h3>Order Summary</h3>
+                        <div class="summary-items" id="summaryItems">
+                            <!-- Order items will be populated here -->
+                        </div>
+                        
+                        <div class="summary-totals">
+                            <div class="total-row">
+                                <span>Subtotal:</span>
+                                <span id="subtotal">$0.00</span>
+                            </div>
+                            <div class="total-row">
+                                <span>Shipping:</span>
+                                <span id="shippingCost">Free</span>
+                            </div>
+                            <div class="total-row">
+                                <span>Tax:</span>
+                                <span id="tax">$0.00</span>
+                            </div>
+                            <div class="total-row total">
+                                <span>Total:</span>
+                                <span id="total">$0.00</span>
+                            </div>
+                        </div>
+                        
+                        <div class="promo-code">
+                            <input type="text" placeholder="Enter promo code" id="promoCode">
+                            <button onclick="applyPromo()">Apply</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ShopEase</h3>
+                    <p>Your ultimate shopping destination for quality products at amazing prices.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ShopEase. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="checkout.js"></script>
+</body>
+</html>
+
